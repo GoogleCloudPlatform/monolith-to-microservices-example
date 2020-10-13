@@ -1,0 +1,13 @@
+{
+  "name": "payment_service",
+  "version": "1.0.0",
+  "main": "payment.js",
+  "scripts": {
+    "start": "node payment.js"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "zeebe-node": "^0.22.0",
+    "@google-cloud/trace-agent": "^4.2.5"
+  }
+}

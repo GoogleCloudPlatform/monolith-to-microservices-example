@@ -1,0 +1,44 @@
+[
+	{
+		"name": "vintage",
+		"ads": {
+			"redirecturl": "/product/2ZYFJ3GM2N",
+			"text": "Film camera for sale. 50% off."
+		}
+	},
+	{
+		"name": "photography",
+		"ads": {
+			"redirecturl": "/product/66VCHSJNU",
+			"text": "Vintage camera lens for sale. 20% off."
+		}
+	},
+	{
+		"name": "cycling",
+		"ads": {
+			"redirecturl": "/product/9SIQT8TOJO",
+			"text": "City Bike for sale. 10% off."
+		}
+	},
+	{
+		"name": "cookware",
+		"ads": {
+			"redirecturl": "/product/1YMWWN1N4O",
+			"text": "Home Barista kitchen kit for sale. Buy one, get second kit for free."
+		}
+	},
+	{
+		"name": "gardening",
+		"ads": {
+			"redirecturl": "/product/L9ECAV7KIM",
+			"text": "Terrarium for sale. Buy one, get second one for free."
+		}
+	},
+	{
+		"name": "music",
+		"ads": {
+			"redirecturl": "/product/0PUK6V6EV0",
+			"text": "Vintage record player for sale. 30% off."
+		}
+	}
+]

@@ -1,0 +1,12 @@
+[[constraint]]
+  name = "contrib.go.opencensus.io/exporter/stackdriver"
+  version = "0.13.0"
+
+[[constraint]]
+  name = "go.opencensus.io"
+  version = "0.22.0"
+
+[prune]
+  go-tests = true
+  unused-packages = true
+

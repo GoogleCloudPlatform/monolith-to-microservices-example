@@ -1,0 +1,6 @@
+grpcio
+grpcio-tools
+google-cloud-logging
+opencensus
+opencensus-ext-stackdriver
+opencensus-ext-grpc

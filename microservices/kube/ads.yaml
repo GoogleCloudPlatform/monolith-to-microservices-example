@@ -1,0 +1,55 @@
+# Copyright 2020 Google LLC. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: ads
+  name: ads
+  namespace: microservice
+spec:
+  ports:
+  - name: "8001"
+    port: 8001
+    targetPort: 8001
+  selector:
+    service: ads
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: ads
+  name: ads
+  namespace: microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: ads
+  template:
+    metadata:
+      labels:
+        service: ads
+    spec:
+      containers:
+      - env:
+        - name: GCP_PROJECT_ID
+          value: [PROJECT_ID]
+        image: gcr.io/cloud-solutions-images/ecomm-ads
+        imagePullPolicy: Always
+        name: ads
+        ports:
+        - containerPort: 8001
