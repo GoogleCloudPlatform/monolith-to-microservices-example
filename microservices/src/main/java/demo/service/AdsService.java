@@ -42,12 +42,11 @@ public class AdsService {
    *
    * @param product user selected product
    */
-  // [START get_recommended_ad]
   public Ad getRecommendedAd(Product product) {
+    // [START get_recommended_ad]
     Span span = SpanUtils.buildSpan(tracer, "Ad Service").startSpan();
     String result;
     String url = "http://" + svcEndpoint + "/servead";
-
     try (Scope ws = tracer.withSpan(span)) {
       result =
           HttpUtils.callEndpoint(
@@ -55,7 +54,9 @@ public class AdsService {
               HttpMethod.POST,
               tracer,
               new JSONObject().put("category", product.getCategories().get(0)));
-    } catch (Exception e) {
+    }
+    // [END get_recommended_ad]
+    catch (Exception e) {
       span.setStatus(Status.ABORTED);
       span.addAnnotation("Error while calling service");
       result = "";
@@ -66,5 +67,4 @@ public class AdsService {
         .setText(result.split(":")[1])
         .build();
   }
-  // [END get_recommended_ad]
 }
