@@ -54,10 +54,10 @@ class RecommendationServiceServicer(demo_pb2_grpc.RecommendationServiceServicer
         exporter=stackdriverExporter)
     with tracer.span(name='Recommendation Backend') as span:
       response = demo_pb2.ListRecommendationsResponse()
+       # [END extract_context]
       response.product_ids[:] = recommend.findMatchingProducts(
           request.product_category)
       return response
-   # [END extract_context]
   
   def HealthCheck(self, request, context):
     tracer = Tracer(sampler=samplers.AlwaysOffSampler())
