@@ -45,9 +45,9 @@ public class ProductController {
    * @param model
    * @return filled model with relevant values
    */
-  // [START parent_span]
   @RequestMapping("/product/{id}")
   public String getProductById(@PathVariable String id, Model model) throws Exception {
+    // [START parent_span]
     Span span = SpanUtils.buildSpan(tracer, "Get Product Details").startSpan();
     try (Scope ws = tracer.withSpan(span)) {
       Product prod = productService.findProductById(id).get();
@@ -56,7 +56,7 @@ public class ProductController {
       model.addAttribute("ad", adsService.getRecommendedAd((Product) prod));
     }
     span.end();
+    // [END parent_span]
     return "product";
   }
-  // [END parent_span]
 }
