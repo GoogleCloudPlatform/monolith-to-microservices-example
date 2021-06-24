@@ -67,8 +67,8 @@ public class RecommendationService {
    *
    * @param product user selected product
    */
-  // [START get_recommended_products]
   public List<Product> getRecommendedProducts(Product product) {
+    // [START get_recommended_products]
     Span span = SpanUtils.buildSpan(tracer, "Recommendation Service").startSpan();
     try (Scope ws = tracer.withSpan(span)) {
       recommendedProducts = new ArrayList<Product>();
@@ -77,6 +77,7 @@ public class RecommendationService {
               RecommendationsRequest.newBuilder()
                   .addAllProductCategory(product.getCategories())
                   .build());
+      // [END get_recommended_products]
       for (String pid : response.getProductIdsList()) {
         recommendedProducts.add(productService.findProductById(pid).get());
       }
@@ -85,5 +86,4 @@ public class RecommendationService {
     span.end();
     return recommendedProducts;
   }
-  // [END get_recommended_products]
 }
