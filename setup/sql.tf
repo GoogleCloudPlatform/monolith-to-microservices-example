@@ -36,6 +36,7 @@ resource "google_sql_database_instance" "instance" {
 
   name   = "${var.project_id}-mysql"
   region = "us-central1"
+  database_version = "MYSQL_5_7"
 
   depends_on = [google_service_networking_connection.private_vpc_connection]
 
